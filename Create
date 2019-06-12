@@ -1,0 +1,3 @@
+*Create from CSV*
+LOAD CSV WITH HEADERS FROM "file:///OdysseyContacts.csv" AS line WITH line
+CREATE (:Name { Name: line.Name, Email: line.Email, Telegram: line.Telegram, Twitter: line.Twitter, Github: line.Github, LinkedIn: line.LinkedIn})
