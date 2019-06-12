@@ -1,0 +1,6 @@
+//Change Twitter details
+
+MATCH (n:Soul)
+WHERE n.Name = 'Name'
+SET n.Twitter = 'https://twitter.com/'
+RETURN n.Twitter
