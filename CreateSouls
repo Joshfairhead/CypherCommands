@@ -1,0 +1,3 @@
+LOAD CSV WITH HEADERS FROM "file:///OdysseyContacts.csv" AS line WITH line
+MERGE (s:Soul {Name: line.name })
+RETURN s
