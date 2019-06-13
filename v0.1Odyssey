@@ -1,0 +1,13 @@
+//Create Souls from name colum in CSV
+LOAD CSV WITH HEADERS FROM "file:///OdysseyContacts.csv" AS line WITH line
+MERGE (s:Soul {Name: line.name })
+
+//Match and link nodes 
+MATCH (soul:Soul), (mail:EmailLookup)
+MERGE (soul)-[r:Email]-(mail)
+
+//Set the node name as Email Addresses
+MATCH (e:EmailAddress)
+SET e.Name = 'Email Addresses'
+RETURN e
+//Now select the node and choose this as a property to name the node
